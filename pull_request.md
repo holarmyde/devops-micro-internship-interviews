@@ -172,3 +172,6 @@ Patience Gitonga - Group 4
 AJAH Callista Ijeoma  Group 4
 Rama Kant Tiwari_Group1
 Uchenna Unigwe - Group4
+3. Add your **Duru Juliet Chinenye** and **group 1** to the list below.
+- **Duru Juliet Chinenye** — Group <Group 1/>
+=
