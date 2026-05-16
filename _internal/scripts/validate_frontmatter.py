@@ -1,7 +1,7 @@
 import os, re, sys, yaml, pathlib
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-QUESTIONS = ROOT.glob("weeks/**/questions/*.md")
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+QUESTIONS = ROOT.glob("[0-9][0-9]-*/questions/*.md")
 
 ALLOWED_DIFFICULTY = {"entry","easy","medium","hard","expert"}
 
@@ -37,14 +37,14 @@ for qpath in QUESTIONS:
     if fm.get("id") != m.group(1):
         rc |= error(f"{qpath}: frontmatter id '{fm.get('id')}' != filename id '{m.group(1)}'")
 
-    # Week folder match
+    # Topic folder match (format: ##-name)
     parts = qpath.parts
-    for i, p in enumerate(parts):
-        if p.startswith("week-"):
-            week_folder = p.split("-")[1]
+    for p in parts:
+        if re.match(r'^\d{2}-', p):
+            week_folder = p.split("-")[0]
             break
     else:
-        rc |= error(f"{qpath}: not inside a week-* folder")
+        rc |= error(f"{qpath}: not inside a ##-topic folder")
         continue
 
     if str(fm.get("week")).zfill(2) != week_folder:

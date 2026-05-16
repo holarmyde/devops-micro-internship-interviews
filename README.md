@@ -10,10 +10,10 @@ Community-driven repository of interview questions and answers for DevOps engine
 |---|---|
 | Share a question you got asked in an interview | **[GitHub Discussions](../../discussions)** — post in the right category, zero setup |
 | Debate or improve an existing answer | **[GitHub Discussions](../../discussions)** — reply and upvote |
-| Add a polished, well-referenced Q&A permanently | **Pull Request** — follow the contribution guide |
+| Add a polished, well-referenced Q&A permanently | **GitHub Discussions** — maintainers will promote it to a PR |
 | Suggest a topic or vote on what to cover next | **[Polls category](../../discussions/categories/polls)** |
 
-**Start in Discussions. Graduate to a PR.** Most community value happens in Discussions. PRs are for when an answer is ready to be permanent.
+**Start in Discussions.** Most community value happens in Discussions. Maintainers promote the best answers into permanent markdown files via PR.
 
 ---
 
@@ -47,7 +47,7 @@ Post it in the right Discussions category  (2 minutes, no setup)
         ↓
 Community upvotes answers, maintainer marks the best one
         ↓
-High-quality answers get submitted as a PR and merged into markdown files
+Maintainers submit high-quality answers as a PR and merge into markdown files
         ↓
 The question lives permanently in the repo, searchable and offline-readable
 ```

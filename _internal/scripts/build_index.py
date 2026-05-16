@@ -1,6 +1,6 @@
 import os, re, sys, yaml, pathlib
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 def load_frontmatter(md_path):
     t = md_path.read_text(encoding="utf-8")
@@ -27,7 +27,7 @@ def replace_index(readme_path, table_md):
             t = pre + table_md + "\n"
     readme_path.write_text(t, encoding="utf-8")
 
-for week_dir in sorted(ROOT.glob("weeks/week-*")):
+for week_dir in sorted(ROOT.glob("[0-9][0-9]-*")):
     qdir = week_dir/"questions"
     if not qdir.exists():
         continue

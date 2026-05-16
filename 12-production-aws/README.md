@@ -8,7 +8,7 @@ These questions are at mid to senior level. They come from real interviews for D
 
 New questions and community answers live in **[GitHub Discussions → Production AWS Platform Q&A](../../discussions)**.
 
-Post what you were asked in an interview. The community answers. The best answers get submitted as a PR and appear in the index below.
+Post what you were asked in an interview. The community answers. Maintainers submit the best answers as a PR and they appear in the index below.
 
 ## Index
 
