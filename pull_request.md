@@ -158,3 +158,4 @@ M Hasnain Hanif - Group 2
 *****MARTIAL AMOUSSOU******  Group 3
 - Mapula Whitney Kataka — Group 5
 Michael Inciso - Group 4
+- **Raphael Baidoo** — Group 2
