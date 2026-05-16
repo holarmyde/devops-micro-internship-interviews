@@ -89,3 +89,4 @@ JENNIFER IFESINACHI UDEH GROUP 2
 - **Blessing Chinyere Udeagu** — Group 6
 **Ihuoma Nkechi Bridget** - Group 2
 **Nkechi Queeneth Ogbuji** - Group 2
+- **Echezona Ifejianyi** - Group 3
