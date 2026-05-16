@@ -56,3 +56,4 @@ Eyiaro Adedayo - Group 2
 Emmanuel Adekiitan - Group 3
 Ashaye Adetomiwa - Group 2
 Famakinwa Temitope Joseph - Group 6
+**ALEKE JUSTIN EKENE** - GROUP 6
