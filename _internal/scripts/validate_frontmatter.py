@@ -28,14 +28,14 @@ for qpath in QUESTIONS:
     if missing:
         rc |= error(f"{qpath}: missing fields: {missing}")
 
-    # ID + filename
+    # ID + filename: format is ##-slug.md, frontmatter id is the integer
     fname = qpath.name
-    m = re.match(r"(Q\d{4})-", fname)
+    m = re.match(r"^(\d{2})-", fname)
     if not m:
-        rc |= error(f"{qpath}: filename must start with Q####-")
+        rc |= error(f"{qpath}: filename must start with ##- (e.g. 01-my-question.md)")
         continue
-    if fm.get("id") != m.group(1):
-        rc |= error(f"{qpath}: frontmatter id '{fm.get('id')}' != filename id '{m.group(1)}'")
+    if str(fm.get("id")) != str(int(m.group(1))):
+        rc |= error(f"{qpath}: frontmatter id '{fm.get('id')}' != filename sequence '{int(m.group(1))}'")
 
     # Topic folder match (format: ##-name)
     parts = qpath.parts
