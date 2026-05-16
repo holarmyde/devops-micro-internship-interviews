@@ -207,20 +207,20 @@ git checkout -b Q####-kebab-title
 
 3. **Add your question**
 
-* Path: `weeks/<week>/questions/`
+* Path: `<topic>/questions/`
 * File: `Q####-kebab-title.md`
 * Include frontmatter and sections (see below)
 
 4. **Run validators manually (optional)**
 
 ```bash
-python scripts/validate_frontmatter.py && python scripts/build_index.py
+python _internal/scripts/validate_frontmatter.py && python _internal/scripts/build_index.py
 ```
 
 5. **Commit** (pre-commit will auto-validate)
 
 ```bash
-git add weeks/<week>/questions/Q####-kebab-title.md
+git add <topic>/questions/Q####-kebab-title.md
 git commit -m "question(Q0401): add IAM role vs user with pitfalls and refs"
 ```
 
@@ -241,13 +241,13 @@ Base: `pravinmishraaws/main` • Compare: `yourusername/Q####-kebab-title`
 
 ## Every PR: Quick Checklist
 
-* [ ] **One question per file** → `weeks/<week>/questions/Q####-kebab-title.md`
+* [ ] **One question per file** → `<topic>/questions/Q####-kebab-title.md`
 * [ ] **Frontmatter** includes: `id, title, difficulty, week, topics, tags, author, reviewed`
 * [ ] **Structure**: Short Answer → Deep Dive → Pitfalls → References
 * [ ] **Run locally** (auto via pre-commit) or manually:
 
   ```bash
-  python scripts/validate_frontmatter.py && python scripts/build_index.py
+  python _internal/scripts/validate_frontmatter.py && python _internal/scripts/build_index.py
   ```
 * [ ] **Rebase on main** before pushing
 * [ ] **Cite sources**; avoid plagiarism
