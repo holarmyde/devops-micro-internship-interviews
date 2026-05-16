@@ -24,3 +24,4 @@ ALLY BURUHANI ALLY - Group 5
 - **Ifekwe Kalu** — Group <Group 6>
 Sridevi Parimi - Group 05
 - **Olanrewaju Awe** — Group <Group 2>
+Temitayo Ali Awopetu - Group 6
