@@ -5,3 +5,4 @@ Mustapha Nurudeen Olalekan — Group 2
   **Goodness Ojonuba** - Group 4
 Yaa Kesewaa Yeboah - Group 5
 Dolapo Mohammed — Group 5
+- Minal Vaishnav — Group 5
