@@ -187,3 +187,4 @@ CHIME MICHAEL TOCHUKWU - GROUP 3
 BOYINBODE FUNMILAYO - GROUP 6
 ## 🧑‍🎓 Student List Full Name — Group <Group Name/Number>
 Oluchukwu Edeh - Group 6
+- **Ezeh Lilian Ezichi** — Group <Group 1>
