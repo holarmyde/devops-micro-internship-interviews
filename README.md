@@ -2,6 +2,21 @@
 
 Community-driven repository of interview questions and answers for DevOps engineers — from fundamentals to production-grade AWS platform engineering.
 
+The questions with a **From the Project** section are drawn from a real eight-microservice AWS platform built end-to-end using Claude Code — Terraform, EKS, ArgoCD, Helm, Observability, and Karpenter. The answers are not scraped from documentation. They come from actually building and operating the system.
+
+---
+
+## Courses Behind This Repo
+
+These are the courses where the platform was built. If you want the hands-on context behind the questions, start here.
+
+| Course | What you build |
+|---|---|
+| [DevOps with Claude Code: Terraform, EKS, ArgoCD & Helm](https://www.udemy.com/course/devops-with-claude-code-terraform-eks-argocd-helm/?referralCode=1C5B734505D65A010FA3) | The full AWS platform — VPC, EKS, RDS, ECR, Helm, ArgoCD, Karpenter, Observability |
+| [Ultimate Agentic AI DevOps with Claude Code](https://www.udemy.com/course/ultimate-agentic-ai-devops-with-claude-code/?referralCode=448389767BC96284087B) | Agentic DevOps workflows — using Claude Code as your primary engineering tool across the full stack |
+| [DevOps for Beginners: Docker, K8s, AWS & Azure + 4 Projects](https://www.udemy.com/course/devops-for-beginners-docker-k8s-cloud-cicd-4-projects/?referralCode=C5BA8236CCE9FE004F98) | Foundations — Docker, Kubernetes, AWS, Azure, CI/CD with four real projects |
+| [AWS Cloud Projects for Engineers: 5 Real-World Projects](https://www.udemy.com/course/aws-mastery-hands-on-cloud-projects-for-engineers/?referralCode=4143F31DC85951744CEB) | Hands-on AWS — five production-style projects covering the core AWS services |
+
 ---
 
 ## Two ways to participate

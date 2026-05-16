@@ -1,17 +1,17 @@
 # Week 00 — Internet, Networking & Basic Tools
 
-**Focus:** Brief overview for this week.
+Networking fundamentals appear in almost every DevOps and cloud interview — not as deep networking questions, but as a baseline check. Interviewers want to know you understand how traffic flows before they hand you a VPC or a Kubernetes cluster. Questions at this level are quick filters: if you cannot explain CIDR or the OSI model in two sentences, the conversation moves on.
 
-## Index
-| ID | Title | Difficulty | Tags | Link |
-|---|---|---|---|---|
-| Q0001 | OSI vs TCP/IP — what’s the practical difference? | entry | networking, osi, tcpip | [Open](questions/Q0001-osi-model-vs-tcpip.md) |
-| Q0010 | Understanding Ports — what they are and why they matter | entry | tcp, udp, ports, networking | [Open](questions/Q0010-port-with-examples.md) |
-| Q0011 | Understanding CIDR — how IP address ranges work | entry | cidr, ip, networking, subnetting | [Open](questions/Q0011-understanding-cidr.md) |
+**Appears in:** phone screens and early technical rounds, at all seniority levels.
 
-## Index
-| ID | Title | Difficulty | Tags | Link |
-|---|---|---|---|---|
-| Q0001 | OSI vs TCP/IP — what’s the practical difference? | entry | networking, osi, tcpip | [Open](questions/Q0001-osi-model-vs-tcpip.md) |
-| Q0010 | Understanding Ports — what they are and why they matter | entry | tcp, udp, ports, networking | [Open](questions/Q0010-port-with-examples.md) |
-| Q0011 | Understanding CIDR — how IP address ranges work | entry | cidr, ip, networking, subnetting | [Open](questions/Q0011-understanding-cidr.md) |
+## Discussion
+
+New questions and community answers → **[GitHub Discussions → Foundations Q&A](../../discussions)**
+
+## Questions
+
+| # | Question | Difficulty | Link |
+|---|---|---|---|
+| 1 | OSI vs TCP/IP — what's the practical difference? | entry | [Open](questions/01-osi-model-vs-tcpip.md) |
+| 2 | Understanding Ports — what they are and why they matter | entry | [Open](questions/02-port-with-examples.md) |
+| 3 | Understanding CIDR — how IP address ranges work | entry | [Open](questions/03-understanding-cidr.md) |

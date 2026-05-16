@@ -1,27 +1,23 @@
 # Week 05 — Azure Cloud
 
-**Focus:** Brief overview for this week.
+Azure interviews test the same concepts as AWS — identity, networking, compute, storage — but with Azure-specific terminology. Resource Groups, VNets, NSGs, and the Azure CLI are the vocabulary you need before any Azure cloud role. The EpicBook scenario questions in this section are scenario-based — they simulate the kind of architectural thinking you need when migrating a single-server app to a modern cloud platform.
 
-## Recent Updates
+**Appears in:** technical rounds for roles that mention Azure, Azure DevOps, or Microsoft stack. Entry-level questions focus on Azure concepts; mid-level questions present migration and scaling scenarios.
 
-Added Q0513-Q0516 covering EpicBook's migration to Azure cloud services. These questions walk through real-world scenarios of moving a single-server app to a modern cloud platform. Topics include:
+## Discussion
 
-- Setting up clustered servers for better reliability and easier updates
-- Using canary deployments to safely test new features with real users
-- Securing communication between different parts of the application
-- Handling sudden traffic spikes with automatic scaling
+New questions and community answers → **[GitHub Discussions → Cloud Platforms Q&A](../../discussions)**
 
-Each question includes practical examples and common pitfalls to watch out for. They're based on typical challenges you'll face when moving apps to the cloud.
+## Questions
 
-## Index
-| ID | Title | Difficulty | Tags | Link |
-|---|---|---|---|---|
-| Q0501 | Resource Groups, VNets, Subnets, NSGs — how they fit | entry | azure, resource-groups, vnet, subnet, nsg | [Open](questions/Q0501-azure-rg-vnet-subnet-nsg.md) |
-| Q0504 | Azure Subscription ID | entry | azure, subscription-id | [Open](questions/Q0504-azure-subcription-id.md) |
-| Q0506 | Benefits of Using Azure Bastion in a Three-Tier Architecture | entry | azure-bastion, ssh, three-tier | [Open](questions/Q0506-azure-AzureBastion.md) |
-| Q0508 | Troubleshooting Failed Resource Deployments Using Azure CLI | entry | azure-cli, resource-manager, deployment-failure | [Open](questions/Q0508-azure-azurecli.md) |
-| Q0510 | IaaS vs PaaS - VM vs App Service | entry | Azure, compute, iaas, paas, vm, app-service | [Open](questions/Q0510-vm-vs-app-service.md) |
-| Q0513 | EpicBook Clustered Platform Migration | entry | azure, cluster, self-healing | [Open](questions/Q0513-migrating-epicbook-clustered-self-healing.md) |
-| Q0515 | Secure Communication Between Three-Tier Application Layers | medium | nsg, subnet, vnet, firewall, azure | [Open](questions/Q0515-secure-communication-three-tier.md) |
-| Q0516 | Automatic Scaling of EpicBook in Azure | medium | autoscale, load-balancer, performance, azure | [Open](questions/Q0516-automatic-scaling-epicbook.md) |
-| Q0518 | Azure Storage Accounts - choosing the right service for unstructured data | easy | azure, storage, blob, files | [Open](questions/Q0518-azure-storage-accounts.md) |
+| # | Question | Difficulty | Link |
+|---|---|---|---|
+| 1 | Resource Groups, VNets, Subnets, NSGs — how they fit | entry | [Open](questions/01-azure-rg-vnet-subnet-nsg.md) |
+| 2 | Azure Subscription ID — what it is and where you use it | entry | [Open](questions/02-azure-subcription-id.md) |
+| 3 | Benefits of Using Azure Bastion in a Three-Tier Architecture | entry | [Open](questions/03-azure-AzureBastion.md) |
+| 4 | Troubleshooting Failed Resource Deployments Using Azure CLI | entry | [Open](questions/04-azure-azurecli.md) |
+| 5 | IaaS vs PaaS — VM vs App Service | entry | [Open](questions/05-vm-vs-app-service.md) |
+| 6 | EpicBook Clustered Platform Migration | entry | [Open](questions/06-migrating-epicbook-clustered-self-healing.md) |
+| 7 | Secure Communication Between Three-Tier Application Layers | medium | [Open](questions/07-secure-communication-three-tier.md) |
+| 8 | Automatic Scaling of EpicBook in Azure | medium | [Open](questions/08-automatic-scaling-epicbook.md) |
+| 9 | Azure Storage Accounts — choosing the right service for unstructured data | easy | [Open](questions/09-azure-storage-accounts.md) |

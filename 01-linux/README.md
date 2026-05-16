@@ -1,16 +1,23 @@
 # Week 01 — Linux for DevOps
 
-**Focus:** Brief overview for this week.
+Linux is the operating system your containers run on, your pipelines build on, and your on-call incidents happen inside. DevOps interviews test Linux because every production problem eventually ends at the OS level — a hung process, a filesystem full, a misconfigured SSH daemon. Questions range from quick fundamentals (permissions, load average) to deep troubleshooting scenarios (boot failures, kernel tuning).
 
-## Index
-| ID | Title | Difficulty | Tags | Link |
-|---|---|---|---|---|
-| Q0101 | How do you diagnose a slow server using Linux commands? | medium | troubleshooting, diadnosics, performance-monitoring | [Open](questions/Q0101-linux-permissions-vs-acl.md) |
-| Q0110 | Linux optimization | easy | linux, optimization | [Open](questions/Q0110-Linux-optimization.md) |
-| Q1900 | How do you diagnose a slow server using Linux commands? | medium | troubleshooting, diagnostics, performance-monitoring, linux | [Open](questions/Q1900-diagnose-slow-server-linux.md) |
-| Q1901 | How do you debug a container that cannot reach the internet? | medium | troubleshooting, docker-networking, connectivity, containers | [Open](questions/Q1901-debug-container-internet-connectivity.md) |
-| Q1902 | How do you secure SSH access to production servers? | medium | ssh-hardening, security-best-practices, access-control | [Open](questions/Q1902-secure-ssh-access-production.md) |
-| Q1903 | What does load average mean in Linux? | easy | load-average, performance-monitoring, system-metrics | [Open](questions/Q1903-explain-load-average-linux.md) |
-| Q1904 | What's the difference between cron and systemd timers? | medium | cron, systemd, timers, task-scheduling | [Open](questions/Q1904-cron-vs-systemd-timers.md) |
-| Q1905 | Explain the Linux boot process and how to troubleshoot boot failures | hard | boot, grub, systemd, kernel, troubleshooting | [Open](questions/Q1905-linux-boot-process-troubleshooting.md) |
-| Q1906 | How do you optimize kernel parameters for a high-traffic web server? | hard | kernel-tuning, performance-optimization, sysctl, web-server | [Open](questions/Q1906-kernel-parameters-web-server-optimization.md) |
+**Appears in:** technical rounds at all levels. Senior roles expect you to explain what you would do — not just which commands you would run.
+
+## Discussion
+
+New questions and community answers → **[GitHub Discussions → Foundations Q&A](../../discussions)**
+
+## Questions
+
+| # | Question | Difficulty | Link |
+|---|---|---|---|
+| 1 | Linux file permissions vs ACLs — when to use each | medium | [Open](questions/01-linux-permissions-vs-acl.md) |
+| 2 | Linux performance optimization — where to start | easy | [Open](questions/02-Linux-optimization.md) |
+| 3 | How do you diagnose a slow server using Linux commands? | medium | [Open](questions/03-diagnose-slow-server-linux.md) |
+| 4 | How do you debug a container that cannot reach the internet? | medium | [Open](questions/04-debug-container-internet-connectivity.md) |
+| 5 | How do you secure SSH access to production servers? | medium | [Open](questions/05-secure-ssh-access-production.md) |
+| 6 | What does load average mean in Linux? | easy | [Open](questions/06-explain-load-average-linux.md) |
+| 7 | What is the difference between cron and systemd timers? | medium | [Open](questions/07-cron-vs-systemd-timers.md) |
+| 8 | Explain the Linux boot process and how to troubleshoot boot failures | hard | [Open](questions/08-linux-boot-process-troubleshooting.md) |
+| 9 | How do you optimize kernel parameters for a high-traffic web server? | hard | [Open](questions/09-kernel-parameters-web-server-optimization.md) |
