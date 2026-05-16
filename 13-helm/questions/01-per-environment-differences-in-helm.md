@@ -53,3 +53,26 @@ Prod overrides set replicas to 2 or more, HPA enabled, larger resource limits, s
 ## References
 - [Helm Docs — Values Files](https://helm.sh/docs/chart_template_guide/values_files/)
 - [Helm Docs — helm upgrade](https://helm.sh/docs/helm/helm_upgrade/)
+
+## From the Project
+
+The Petclinic Platform uses exactly this pattern for all eight services:
+
+```
+helm/
+└── petclinic-service/        ← one generic chart for all 8 services
+helm-values/
+├── api-gateway/
+│   ├── values.yaml           ← port, probes, env vars, resource limits
+│   ├── dev.yaml              ← replicas: 1, HPA: disabled
+│   └── prod.yaml             ← replicas: 2, HPA: enabled
+└── customers-service/
+    └── ...
+```
+
+Deploying api-gateway to dev:
+`helm upgrade api-gateway ./helm/petclinic-service -f helm-values/api-gateway/values.yaml -f helm-values/api-gateway/dev.yaml`
+
+Swap `dev.yaml` for `prod.yaml` for prod. The chart never changes. Only the values file changes.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

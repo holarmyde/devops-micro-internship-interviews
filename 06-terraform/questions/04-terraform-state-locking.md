@@ -34,3 +34,15 @@ For reliability:
 
 ## Reference
 - [Terraform Docs – State Locking](https://developer.hashicorp.com/terraform/language/state/locking)
+## From the Project
+
+On the Petclinic Platform, the `petclinic-terraform-locks` DynamoDB table holds one entry per active Terraform operation. The entry contains:
+
+- Lock ID (UUID)
+- Who acquired it (username or CI role ARN)
+- When it was acquired
+- What operation is running (plan or apply)
+
+In CI, the GitHub Actions role acquires this lock when the workflow runs. If the workflow is cancelled mid-apply, the lock survives. The next run sees the stale lock and fails immediately — a deliberate safety net that forces a human to investigate before proceeding.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

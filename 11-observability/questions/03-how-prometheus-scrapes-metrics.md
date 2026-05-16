@@ -41,3 +41,19 @@ For Spring Boot microservices using Micrometer, the scrape flow is:
 ## References
 - [Prometheus Docs — Kubernetes Service Discovery](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config)
 - [Micrometer Docs — Prometheus Registry](https://micrometer.io/docs/registry/prometheus)
+
+## From the Project
+
+Five of the eight Petclinic services are scraped by Prometheus:
+
+| Service | Key metrics |
+|---|---|
+| api-gateway | Request throughput, circuit breaker state, latency |
+| customers-service | JVM metrics, HTTP request rate |
+| visits-service | JVM metrics, HTTP request rate |
+| vets-service | Caffeine cache hit rate, JVM metrics |
+| genai-service | AI model call latency, token usage |
+
+The three excluded services — config-server, discovery-server, admin-server — do not expose a Micrometer metrics endpoint. Prometheus is configured not to scrape them. Saying "we intentionally excluded three services because they do not expose Micrometer metrics" in an interview signals real hands-on knowledge.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

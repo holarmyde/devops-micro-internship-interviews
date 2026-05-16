@@ -30,3 +30,15 @@ Load average represents the number of processes in a runnable or uninterruptible
 
 When you run `uptime` or `top`, you see three load average numbers:
 ```bash
+
+## From the Project
+
+On the Petclinic Platform's t4g.small EKS nodes (2 vCPU each), load average is a meaningful signal:
+
+- Load average above 2.0 on a 2-vCPU node means the run queue is backed up — pods start experiencing latency
+- Karpenter monitors pending pods (not load average directly), but sustained high CPU on existing nodes is often what causes pods to become unschedulable in the first place
+- `kubectl top nodes` shows CPU usage percentage; Grafana shows the underlying trend over time
+
+In practice: if a node consistently runs above 80% CPU, Karpenter provisions a new node and the scheduler redistributes pending pods automatically.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

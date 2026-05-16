@@ -41,3 +41,19 @@ What are ports in networking, and how do they help different applications commun
 
 ## References
 - https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
+## From the Project
+
+Every service in the Petclinic Platform exposes a specific port — and security groups allow only those ports, nothing else:
+
+| Service | Port | Notes |
+|---|---|---|
+| API Gateway | 8080 | Internal; ALB forwards 443 → 8080 |
+| Config Server | 8888 | Must start first; all services depend on it |
+| Discovery Server | 8761 | Eureka registry |
+| Customers / Visits / Vets | 8081–8083 | Spring Boot, MySQL backend |
+| RDS MySQL | 3306 | Allowed only from EKS node security group |
+| Prometheus | 9090 | Scraped by Grafana inside the cluster |
+
+Understanding which port each service uses — and why — is the difference between an engineer who deployed it and one who just read the docs.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

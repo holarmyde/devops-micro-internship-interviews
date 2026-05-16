@@ -64,3 +64,18 @@ reviewed: false
 
 
 
+
+## From the Project
+
+The Petclinic Platform uses Terraform for infrastructure provisioning — not Ansible. The role vs. playbook distinction maps directly to Terraform's module vs. root module pattern:
+
+| Ansible | Terraform equivalent |
+|---|---|
+| Playbook | Root module (`environments/dev/main.tf`) |
+| Role | Reusable module (`modules/vpc/`, `modules/eks/`) |
+| Task | Resource block |
+| Inventory | `terraform.tfvars` / backend config |
+
+If you are asked about Ansible in an interview for a role that uses Terraform — drawing this parallel shows you understand the abstraction, not just the syntax.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

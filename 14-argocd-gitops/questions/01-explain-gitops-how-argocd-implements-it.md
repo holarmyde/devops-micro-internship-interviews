@@ -43,3 +43,16 @@ GitHub Actions → build image → push to ECR → commit image tag to helm-valu
 ## References
 - [ArgoCD Docs — Core Concepts](https://argo-cd.readthedocs.io/en/stable/core_concepts/)
 - [ArgoCD Docs — Sync Policies](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/)
+
+## From the Project
+
+The Petclinic Platform's full GitOps loop:
+
+1. Developer pushes code → GitHub Actions builds the Docker image, pushes to ECR with the commit SHA as the tag
+2. GitHub Actions commits the new image tag to `helm-values/api-gateway/dev.yaml` in the `petclinic-platform` repo
+3. ArgoCD detects the new commit (polls every 3 minutes or via webhook) and applies the updated Helm release to the `petclinic-dev` namespace
+4. If someone manually scales a deployment in the cluster — `kubectl scale deployment api-gateway --replicas=5` — ArgoCD detects the drift on the next sync and reverts it back to the declared state
+
+Dev is auto-sync. Prod is manual sync — a human must approve the sync in the ArgoCD UI. That is the human gate for production.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

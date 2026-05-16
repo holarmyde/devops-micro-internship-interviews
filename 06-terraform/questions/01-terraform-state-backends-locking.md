@@ -18,3 +18,18 @@ Why use remote state? How does locking work?
 
 ## References
 - Terraform Docs — Backends
+
+## From the Project
+
+The Petclinic Platform's Terraform configuration uses exactly this setup:
+
+- **Backend:** S3 bucket with separate keys per environment
+  - Dev: `petclinic/dev/terraform.tfstate`
+  - Prod: `petclinic/prod/terraform.tfstate`
+- **Locking:** DynamoDB table `petclinic-terraform-locks` — prevents concurrent applies from corrupting state
+- **Encryption:** state files encrypted at rest with SSE-S3
+- **Versioning:** S3 versioning enabled — recover a previous state file if an apply goes wrong
+
+These are not theoretical values. They are the exact paths used in the course project.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

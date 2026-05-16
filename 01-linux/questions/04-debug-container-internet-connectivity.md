@@ -122,3 +122,15 @@ sudo systemctl restart docker
 - https://docs.docker.com/network/
 - https://docs.docker.com/network/bridge/
 - https://docs.docker.com/config/containers/container-networking/
+
+## From the Project
+
+EKS pods on the Petclinic Platform need external connectivity — the Config Server fetches its configuration from a public GitHub repo. Debugging that flow:
+
+1. `kubectl exec -it config-server-<pod> -- curl -v https://github.com` — test outbound HTTPS from inside the container
+2. Check the VPC route table — public subnets route `0.0.0.0/0` through the Internet Gateway
+3. Check the EKS node security group — outbound rules must allow HTTPS (port 443)
+
+The all-public subnet design means pods can reach the internet without a NAT Gateway — but security group outbound rules still control what they can reach.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

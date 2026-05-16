@@ -46,3 +46,18 @@ Common components that use IRSA: **External Secrets Operator**, **ALB Ingress Co
 ## References
 - [AWS Docs — IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
 - [AWS Docs — Create an IAM OIDC provider for your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+
+## From the Project
+
+The Petclinic Platform uses IRSA for four components — each with its own scoped IAM role:
+
+| Component | IAM Role | Key Permissions |
+|---|---|---|
+| External Secrets Operator | `petclinic-eso-role` | `secretsmanager:GetSecretValue` on petclinic secrets only |
+| ALB Ingress Controller | `petclinic-alb-role` | Create/manage ALB, target groups, listeners |
+| EBS CSI Driver | `petclinic-ebs-csi-role` | Create/attach EBS volumes |
+| Karpenter | `petclinic-karpenter-role` | `ec2:RunInstances`, `ec2:TerminateInstances`, SQS for interruption handling |
+
+Each role's trust policy allows only the specific Kubernetes service account in the specific namespace to assume it. No other pod in the cluster can assume these roles — even if it runs with elevated privileges.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

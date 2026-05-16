@@ -16,3 +16,15 @@ Why does chaining multiple AssumeRole operations cause token expiration even if 
 
 ## References
 - AWS IAM Policy Permission docs
+
+## From the Project
+
+The Petclinic Platform uses IAM roles — never IAM users or access keys — for all service-to-service access:
+
+- **GitHub Actions → AWS:** OIDC federation — no long-lived credentials, IAM role assumed at runtime via trust policy
+- **EKS pods → AWS services:** IRSA (IAM Roles for Service Accounts) — pods assume scoped roles via OIDC without any credentials stored in the pod
+- **Terraform → AWS:** run locally with AWS CLI credentials, or via CI using the OIDC role
+
+Every identity gets exactly the permissions it needs for exactly the resources it touches. No wildcard policies, no `*` on sensitive actions.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

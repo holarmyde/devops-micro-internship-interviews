@@ -72,3 +72,14 @@ Save location: weeks/8/questions/Q0801-diagnose-slow-server-linux.md
 Ready for Question 2?
 
 
+
+## From the Project
+
+The Petclinic Platform runs eight containerised Spring Boot services on EKS. Linux permissions apply in two places:
+
+- **Container images:** The `eclipse-temurin:17` base image. Kubernetes security contexts enforce non-root execution — pods run with `runAsNonRoot: true` so no container process can write to restricted paths.
+- **Secrets:** AWS Secrets Manager delivers credentials at runtime, injected by the External Secrets Operator. Credentials are never stored as files on disk, which sidesteps the classic permissions-on-config-file problem entirely.
+
+File permissions are foundational — even in a containerised environment, they determine what a compromised process can reach.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

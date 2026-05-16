@@ -41,3 +41,22 @@ ArgoCD sees the new commit (the revert), detects that the cluster is out of sync
 ## References
 - [ArgoCD Docs — Application History and Rollback](https://argo-cd.readthedocs.io/en/stable/user-guide/app_deletion/)
 - [GitOps Principles — OpenGitOps](https://opengitops.dev/)
+
+## From the Project
+
+On the Petclinic Platform, a bad deployment is rolled back with two Git commands:
+
+```bash
+# Find the commit that updated the image tag
+git log --oneline helm-values/api-gateway/
+
+# Revert it
+git revert <commit-sha>
+git push origin main
+```
+
+ArgoCD detects the revert commit and applies the previous image tag — without any kubectl access, without any manual cluster changes, with a full audit trail in Git.
+
+Why not `kubectl rollout undo`? It works once, but ArgoCD will overwrite it on the next sync. Git revert is permanent, traceable, and the correct answer in a GitOps system.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

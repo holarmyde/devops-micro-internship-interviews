@@ -40,3 +40,15 @@ Network ACLs:
 - AWS VPC Security Groups - https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
 - AWS Network ACLs - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
 
+
+## From the Project
+
+The Petclinic Platform uses security groups as the primary network-layer access control:
+
+- **EKS node security group:** allows inbound from the ALB security group on port 8080, no inbound SSH (port 22 is not open)
+- **RDS security group:** allows inbound port 3306 only from the EKS node security group — no public access
+- **ALB security group:** allows inbound HTTPS (443) from `0.0.0.0/0` (internet-facing), HTTP (80) redirects to HTTPS
+
+Each security group has a single responsibility. The RDS group does not know about the ALB — it only trusts the EKS nodes. That is the principle of least privilege at the network layer.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

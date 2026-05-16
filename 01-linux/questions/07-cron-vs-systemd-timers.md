@@ -143,3 +143,14 @@ systemctl cat backup.timer    # View timer configuration
 - https://www.freedesktop.org/software/systemd/man/systemd.timer.html
 - https://wiki.archlinux.org/title/Systemd/Timers
 - https://crontab.guru/ (Cron expression tester)
+
+## From the Project
+
+The Petclinic Platform does not use cron or systemd timers directly — scheduled tasks are handled at the Kubernetes layer:
+
+- **Kubernetes CronJobs:** the containerised equivalent of cron — declarative, restartable, and visible via `kubectl get cronjobs`
+- **AWS EventBridge Scheduler:** used for infrastructure-level scheduled tasks outside the cluster
+
+Understanding cron syntax remains essential because Kubernetes CronJob schedules use the exact same format — `0 2 * * *` means 2 AM daily, identical to classic cron.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

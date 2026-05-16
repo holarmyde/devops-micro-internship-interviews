@@ -40,3 +40,15 @@ Each pillar answers a different question during an incident:
 ## References
 - [OpenTelemetry — Observability Primer](https://opentelemetry.io/docs/concepts/observability-primer/)
 - [Grafana Docs — Loki](https://grafana.com/docs/loki/latest/)
+
+## From the Project
+
+The Petclinic Platform implements all three pillars in production:
+
+- **Metrics:** Prometheus scrapes `/actuator/prometheus` from five services (api-gateway, customers, visits, vets, genai). Grafana renders per-service dashboards with request rate, error rate, and JVM memory.
+- **Logs:** FluentBit DaemonSet tails container logs from all eight services and ships to Loki. Grafana Explore filters by service, pod, or log level.
+- **Traces:** OpenTelemetry exporter in each Spring Boot service sends spans to Zipkin. A slow API call shows exactly which downstream service added the latency.
+
+The investigation sequence in production: metrics tell you *something is wrong*, logs tell you *what happened*, traces tell you *where the time went*.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

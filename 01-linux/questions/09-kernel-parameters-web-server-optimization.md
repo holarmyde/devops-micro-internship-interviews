@@ -202,3 +202,16 @@ cat /proc/sys/fs/file-nr
 - https://www.brendangregg.com/blog/2021-09-06/system-performance-tuning.html
 - https://www.nginx.com/blog/tuning-nginx/
 - https://man7.org/linux/man-pages/man8/sysctl.8.html
+
+## From the Project
+
+The Petclinic Platform serves HTTP traffic through an AWS ALB, which handles connection management at the network edge. Spring Boot services inside EKS receive pre-processed requests — kernel-level TCP tuning is less critical than in a bare-metal setup.
+
+Where it does apply:
+
+- EKS node kernel parameters (`net.core.somaxconn`, `net.ipv4.tcp_max_syn_backlog`) affect how many connections a node can queue before dropping
+- For high-traffic production systems, these are tuned via a DaemonSet that applies `sysctl` values to each node at startup
+
+For the learning environment (t4g.small, limited traffic), defaults are sufficient. For production at scale, this becomes relevant fast.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

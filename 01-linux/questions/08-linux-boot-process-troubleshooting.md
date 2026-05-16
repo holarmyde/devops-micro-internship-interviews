@@ -197,3 +197,14 @@ Login Prompt / Display Manager
 - https://www.gnu.org/software/grub/manual/grub/grub.html
 - https://www.freedesktop.org/software/systemd/man/bootup.html
 - https://wiki.archlinux.org/title/Arch_boot_process
+
+## From the Project
+
+EKS nodes are managed Amazon Linux instances bootstrapped by Karpenter. The boot process matters in two scenarios:
+
+- **Node bootstrap failure:** a Karpenter-provisioned node fails to join the cluster — check EC2 instance console output in the AWS Console for cloud-init errors during the bootstrap script
+- **Node not ready:** `kubectl describe node <node>` shows the kubelet startup sequence and any errors during the `Starting kubelet` phase
+
+In practice, Karpenter replaces unhealthy nodes automatically. Understanding the boot sequence helps when a replacement node is also failing — which points to a cluster-wide configuration problem, not a one-off node failure.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

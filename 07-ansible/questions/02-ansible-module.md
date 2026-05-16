@@ -20,3 +20,17 @@ How can you find or use build-in module
 - Ansible Docs — Modules
 
 ---
+
+## From the Project
+
+The Petclinic Platform does not use Ansible modules — infrastructure is provisioned with Terraform and application configuration is managed through Kubernetes ConfigMaps and AWS Secrets Manager.
+
+In a fully containerised EKS deployment, the operations Ansible modules typically handle are done differently:
+
+- Package installation → baked into the Docker image at build time
+- Configuration files → ConfigMaps or Secrets mounted into pods
+- Service management → Kubernetes Deployment restarts via `kubectl rollout restart`
+
+If you work in a hybrid environment (some VMs, some containers), Ansible and Kubernetes coexist naturally — Ansible for the VM layer, Kubernetes for the container layer.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

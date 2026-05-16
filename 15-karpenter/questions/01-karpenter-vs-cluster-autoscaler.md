@@ -58,3 +58,33 @@ For a Kubernetes platform on AWS, Karpenter is the current industry standard. Cl
 ## References
 - [Karpenter Docs — Getting Started](https://karpenter.sh/docs/getting-started/)
 - [Karpenter vs Cluster Autoscaler — AWS Blog](https://aws.amazon.com/blogs/containers/using-amazon-eks-with-karpenter-for-optimized-computing/)
+
+## From the Project
+
+The Petclinic Platform uses Karpenter with a NodePool that targets ARM/Graviton instances:
+
+```yaml
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: petclinic-nodes
+spec:
+  template:
+    spec:
+      requirements:
+        - key: karpenter.sh/capacity-type
+          operator: In
+          values: ["spot", "on-demand"]
+        - key: kubernetes.io/arch
+          operator: In
+          values: ["arm64"]
+        - key: node.kubernetes.io/instance-type
+          operator: In
+          values: ["t4g.small", "t4g.medium", "t4g.large"]
+```
+
+When a Spring Boot pod cannot be scheduled because all t4g.small nodes are full, Karpenter reads the pod's resource request (256 MiB, 0.25 CPU) and provisions the cheapest ARM instance that fits — trying spot first, falling back to on-demand if no spot capacity is available. Provisioning takes under 60 seconds.
+
+Cluster Autoscaler would have required a pre-configured ASG with a fixed instance type. Karpenter makes that decision dynamically, per workload.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

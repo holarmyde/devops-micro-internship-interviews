@@ -29,3 +29,14 @@ We also use Azure's Application Gateway as our main entrance - it's like having 
 ## References
 - https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server
 - https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+## From the Project
+
+The Petclinic Platform implements a three-tier architecture on AWS:
+
+- **Presentation tier:** ALB (public-facing) — terminates TLS, routes to API Gateway pods on port 8080
+- **Application tier:** Eight Spring Boot microservices in EKS pods — not directly reachable from the internet
+- **Data tier:** RDS MySQL — no public endpoint, accessible only from the EKS node security group on port 3306
+
+Secrets (MySQL credentials) are stored in AWS Secrets Manager and injected at pod startup by the External Secrets Operator. No credentials in code, no credentials in YAML.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

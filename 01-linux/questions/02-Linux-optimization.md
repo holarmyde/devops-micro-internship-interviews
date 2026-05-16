@@ -26,3 +26,15 @@ How important Linux optimization for DevOps?
 
 ## References
 - man `top`, `systemd`, `netstat`, `ext4`
+
+## From the Project
+
+The Petclinic Platform runs on AWS t4g.small ARM/Graviton EKS nodes (2 vCPU, 2 GiB RAM). With eight Spring Boot microservices sharing cluster capacity, resource efficiency matters:
+
+- Each pod is capped at 512 MiB memory limit — the same limit set in the Docker build
+- JVM heap is tuned to stay within the container memory limit, preventing OOMKill events
+- Karpenter provisions nodes on demand and removes them when idle — over-provisioning at the cluster level is avoided automatically
+
+Knowing how to read node resource usage (`kubectl top nodes`, `kubectl describe node`) is how you catch a memory-starved node before it starts evicting pods.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

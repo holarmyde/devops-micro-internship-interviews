@@ -15,3 +15,15 @@ Compare the three strategies and when to use each. Include example manifests or 
 ## References
 - Kubernetes Docs — Deployments
 - Argo Rollouts
+
+## From the Project
+
+The Petclinic Platform uses rolling update strategy for all eight microservices:
+
+- **Dev environment:** 1 replica per service — rolling update replaces the single pod; new pod starts, passes the readiness check, old pod terminates
+- **Prod environment:** 2+ replicas — rolling update ensures at least 1 replica is always serving traffic during the update
+- **Readiness probes:** every service exposes `/actuator/health/readiness` — Kubernetes waits for the new pod to pass the check before sending traffic to it and before terminating the old one
+
+Blue/green and canary are not used in this project. The GitOps rollback model (git revert → ArgoCD re-deploys) provides the safety net instead of parallel environments.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

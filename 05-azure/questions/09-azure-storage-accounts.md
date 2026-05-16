@@ -24,3 +24,16 @@ Your application needs to store images and large unstructured files. Which Azure
 ## References
 - https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction
 - https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview
+
+## From the Project
+
+The Petclinic Platform uses Amazon S3 as its equivalent to Azure Storage Accounts. S3 in this project:
+
+- **Terraform remote state:** `petclinic-terraform-state` bucket stores state at `petclinic/dev/terraform.tfstate` and `petclinic/prod/terraform.tfstate`
+- **Versioning enabled:** every state file change is versioned — rollback is possible if a bad apply corrupts state
+- **Encryption:** server-side encryption with AWS-managed keys (SSE-S3)
+- **Access control:** bucket policy allows access only from the Terraform IAM role — no public access
+
+Conceptual mapping: Azure containers = S3 buckets, Azure blobs = S3 objects, Azure SAS tokens = S3 presigned URLs.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

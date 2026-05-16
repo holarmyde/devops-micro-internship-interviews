@@ -62,3 +62,23 @@ Here we have used:
 ## References
 
 - [Official Docs](https://developer.hashicorp.com/terraform/language/state/locking)
+
+## From the Project
+
+The Petclinic Platform backend block in `terraform/environments/dev/main.tf`:
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket         = "petclinic-terraform-state"
+    key            = "petclinic/dev/terraform.tfstate"
+    region         = "eu-central-1"
+    dynamodb_table = "petclinic-terraform-locks"
+    encrypt        = true
+  }
+}
+```
+
+When `terraform apply` runs in dev, Terraform acquires a lock in DynamoDB before modifying state. If a second engineer runs apply at the same time, they see: `Error: Error acquiring the state lock`. The lock entry tells you who holds it and when they started.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

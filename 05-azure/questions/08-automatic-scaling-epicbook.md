@@ -31,3 +31,13 @@ Meanwhile, our database might be feeling the pressure too. If we're using Azure 
 ## References
 - https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
 - https://learn.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
+## From the Project
+
+The Petclinic Platform uses two levels of automatic scaling on AWS EKS:
+
+- **Pod scaling (HPA):** Horizontal Pod Autoscaler scales individual services based on CPU utilisation — prod starts at 2 replicas and scales up under load
+- **Node scaling (Karpenter):** when pending pods cannot be scheduled due to insufficient node capacity, Karpenter calls the EC2 Fleet API directly and provisions a new node in under 60 seconds
+
+The combination means the cluster handles traffic spikes automatically — no manual intervention, no idle spare capacity pre-provisioned.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

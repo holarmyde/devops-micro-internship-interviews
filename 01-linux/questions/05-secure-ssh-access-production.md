@@ -23,3 +23,15 @@ How would you secure SSH access to production servers? Discuss multiple layers o
 
 Edit `/etc/ssh/sshd_config` with these security settings:
 ```bash
+
+## From the Project
+
+The Petclinic Platform avoids SSH access to production nodes entirely:
+
+- **Pod debugging:** `kubectl exec -it <pod> -- /bin/sh` — shell into a running container without touching the node
+- **Node access (if unavoidable):** AWS Systems Manager Session Manager — no SSH port open, no key pair management, full audit trail in CloudTrail
+- **EKS node security group:** no inbound rule for port 22
+
+This is the recommended posture for production EKS: treat nodes as cattle, not pets. If a node needs investigation, drain it and inspect the pod on a healthy node instead.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

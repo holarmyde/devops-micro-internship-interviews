@@ -61,3 +61,16 @@ Review system logs for hardware errors, kernel issues, or service failures:
 - https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55
 - https://man7.org/linux/man-pages/man1/iostat.1.html
 - https://www.brendangregg.com/linuxperf.html
+
+## From the Project
+
+On the Petclinic Platform, slow response times can originate at multiple levels. The investigation sequence mirrors standard Linux diagnosis:
+
+1. `kubectl top pods` → which pod is consuming CPU or memory
+2. `kubectl exec -it <pod> -- top` → process-level CPU inside the container
+3. Grafana dashboard → `/actuator/prometheus` metrics reveal JVM GC pressure, thread pool saturation, or slow DB queries
+4. Zipkin traces → where time is actually spent in a request chain across services
+
+The tools differ (kubectl instead of ssh, Grafana instead of htop) but the diagnostic thinking is identical — narrow from system to process to function.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

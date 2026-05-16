@@ -14,3 +14,14 @@ What is the difference between git pull and git fetch?
 
 
 
+
+## From the Project
+
+In the Petclinic Platform's GitOps workflow, fetch vs. pull has a practical implication:
+
+- **ArgoCD** does a `git fetch` under the hood to check if the remote repo has new commits — it never auto-merges into a local branch. It compares the remote SHA against what is currently deployed.
+- **Developers** running `git pull --ff-only` on `main` ensures local state is exactly in sync with the remote without accidentally creating a merge commit on a shared branch.
+
+The rule: use `git fetch` to look, `git pull --ff-only` to sync. Never `git pull` with a merge on a branch ArgoCD is watching — the extra merge commit can confuse the diff.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

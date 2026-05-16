@@ -19,3 +19,18 @@ Contrast IAM users, roles, and policies with examples.
 
 ## References
 - AWS IAM docs
+
+## From the Project
+
+The Petclinic Platform has zero IAM users for machine access. Every non-human identity is an IAM role:
+
+| Identity | Role | Trust |
+|---|---|---|
+| GitHub Actions | `petclinic-github-actions` | OIDC — `token.actions.githubusercontent.com` |
+| External Secrets Operator | `petclinic-eso-role` | IRSA — specific service account + namespace |
+| ALB Ingress Controller | `petclinic-alb-role` | IRSA |
+| Karpenter | `petclinic-karpenter-role` | IRSA |
+
+Policies are scoped per role — the ESO role can only read from Secrets Manager, the ALB role can only manage load balancers. No role can do everything.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

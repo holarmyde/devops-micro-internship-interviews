@@ -43,3 +43,20 @@ Metrics first, then logs, then traces. Check Grafana to identify which service a
 ## References
 - [Grafana Docs — Explore](https://grafana.com/docs/grafana/latest/explore/)
 - [Zipkin Docs — Architecture](https://zipkin.io/pages/architecture.html)
+
+## From the Project
+
+On the Petclinic Platform, the response when an alert fires:
+
+1. **Grafana** → alerting dashboard: which service, which metric, is it a spike or a sustained trend?
+2. **Loki** → Grafana Explore → filter logs for that service in the 10 minutes around the alert. Look for stack traces, connection errors, timeout messages.
+3. **Zipkin** → if the metric is latency-related, pull a trace from around the alert time. Find the slow span — is it the service itself, the database query, or a downstream call?
+
+**Fix options in order:**
+- Bad release → `git revert <commit>` on the image tag commit in `helm-values/`. ArgoCD re-deploys the previous image automatically.
+- Configuration drift → ArgoCD manual sync restores the desired state
+- Pod crash → `kubectl describe pod` + `kubectl logs --previous` to see the exit reason
+
+Metrics → logs → traces. In that order, every time.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

@@ -30,3 +30,15 @@ The real game-changer is how we can update EpicBook. Instead of taking down the 
 ## References
 - https://learn.microsoft.com/en-us/azure/aks/concepts-clusters-workloads
 - https://learn.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
+
+## From the Project
+
+The Petclinic Platform performs a similar migration — eight Spring Boot microservices moved from Docker Compose to production on AWS EKS. Self-healing and clustering patterns used:
+
+- **Self-healing:** Kubernetes liveness and readiness probes on every service — a crashed pod is detected within seconds and restarted automatically
+- **Clustering:** EKS manages the control plane; Karpenter scales nodes; HPA scales pods horizontally based on CPU utilisation
+- **Zero-downtime deploys:** rolling update strategy — new pods pass the readiness check before old pods are terminated
+
+The Docker Compose to Kubernetes migration is exactly this pattern, applied at production scale across eight services.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

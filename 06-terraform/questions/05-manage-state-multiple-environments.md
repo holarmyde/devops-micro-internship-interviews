@@ -42,3 +42,17 @@ DynamoDB handles locking — if two engineers run `terraform apply` at the same 
 ## References
 - [Terraform Docs — S3 Backend](https://developer.hashicorp.com/terraform/language/settings/backends/s3)
 - [Terraform Docs — State Locking](https://developer.hashicorp.com/terraform/language/state/locking)
+
+## From the Project
+
+This is the exact setup used in the Petclinic Platform. The `terraform/environments/` directory has two root modules:
+
+```
+terraform/environments/
+├── dev/    ← backend key: petclinic/dev/terraform.tfstate
+└── prod/   ← backend key: petclinic/prod/terraform.tfstate
+```
+
+Both environments share the same S3 bucket and DynamoDB table, but separate state keys ensure dev changes never touch prod state. Running `terraform apply` in `environments/dev/` cannot affect `environments/prod/` — by design.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

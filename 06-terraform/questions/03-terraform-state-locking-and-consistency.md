@@ -19,3 +19,13 @@ When working in a team, how can you ensure no state conflict occurs when using a
 
 ## References
 - Terraform Docs — Backends
+
+## From the Project
+
+State consistency is a real concern on the Petclinic Platform — two engineers working on different modules (say, VPC changes and EKS node group changes) could both run `terraform apply` in the same environment simultaneously.
+
+The DynamoDB lock prevents this. The lock is acquired before reading state, held during plan and apply, and released after apply completes. If the apply crashes mid-run, the lock remains. Clear it with `terraform force-unlock <lock-id>` — only after confirming no other apply is actually running.
+
+Consistent state is what makes it safe for a team to share infrastructure. Without it, the second apply works on stale state and may destroy resources the first apply just created.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

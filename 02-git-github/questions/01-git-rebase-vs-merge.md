@@ -24,3 +24,14 @@ When should you use `git rebase` vs `git merge`? Trade-offs?
 
 ## References
 - Git Book — Rebasing
+
+## From the Project
+
+The Petclinic Platform uses a GitOps delivery model — Git history quality directly affects incident response speed:
+
+- **In `petclinic-platform` (infra repo):** rebasing feature branches onto main before merging keeps a linear history. When an alert fires, `git log --oneline helm-values/` immediately shows what changed and when.
+- **In the GitOps loop:** ArgoCD tracks commits to the `helm-values/` directory. A clean, rebased history makes it trivial to identify which commit introduced a bad image tag — and which `git revert` will fix it.
+
+Linear history is not just aesthetic — it is operational. Merge commits create noise that slows down incident response.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

@@ -36,3 +36,16 @@ Saving with `-out` is critical. Without it, `terraform apply` recalculates the p
 ## References
 - [Terraform Docs — terraform plan](https://developer.hashicorp.com/terraform/cli/commands/plan)
 - [Terraform Docs — terraform apply](https://developer.hashicorp.com/terraform/cli/commands/apply)
+
+## From the Project
+
+Every infrastructure change in the Petclinic Platform follows this review discipline:
+
+1. Read the technical spec first — understand what should exist before writing any Terraform
+2. Write the module, run `terraform plan -out plan.out`
+3. Read the plan line by line — every addition, modification, and destruction has a reason. An unexpected destruction of an RDS instance or EKS node group means stop and investigate.
+4. Apply with `terraform apply plan.out` — the saved plan ensures exactly what you reviewed is what gets applied
+
+The `-out` flag matters because Terraform re-calculates the plan at apply time if you do not save it. What you reviewed and what gets applied could differ if the state changed between the two commands.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*

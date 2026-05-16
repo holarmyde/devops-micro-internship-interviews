@@ -25,3 +25,16 @@ Compare OSI and TCP/IP models and explain how they map to real-world troubleshoo
 
 ## References
 - https://datatracker.ietf.org/doc/html/rfc1122
+
+## From the Project
+
+The Petclinic Platform runs inside a custom AWS VPC, where every layer of the OSI model plays a role:
+
+- **Application layer:** Route 53 resolves the public domain to the ALB; Spring Boot services communicate via HTTP on internal ports
+- **Transport layer:** The ALB terminates TLS (port 443) and forwards HTTP to pods on port 8080
+- **Network layer:** VPC routing tables and security groups control east-west traffic between EKS pods and RDS
+- **Link layer:** AWS manages the underlying Ethernet fabric across Availability Zones
+
+When debugging pod connectivity issues on EKS, the same top-down approach applies — start at DNS, verify the service endpoint resolves, then check the TCP handshake to the target pod.
+
+*Built as part of the [Agentic DevOps with Claude Code](https://www.udemy.com/course/agentic-devops-with-claude-code/) course.*
