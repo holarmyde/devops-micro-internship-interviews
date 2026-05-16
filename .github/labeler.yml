@@ -36,4 +36,13 @@ week-11:
       - any-glob-to-any-file: '11-observability/**'
 week-12:
   - changed-files:
-      - any-glob-to-any-file: '12-production-aws/**'
+      - any-glob-to-any-file: '12-eks/**'
+week-13:
+  - changed-files:
+      - any-glob-to-any-file: '13-helm/**'
+week-14:
+  - changed-files:
+      - any-glob-to-any-file: '14-argocd-gitops/**'
+week-15:
+  - changed-files:
+      - any-glob-to-any-file: '15-karpenter/**'

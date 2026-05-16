@@ -1,5 +1,5 @@
 ---
-id: Q0627
+id: Q0602
 title: Terraform remote backend state locking
 difficulty: medium
 week: 06

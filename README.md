@@ -70,17 +70,19 @@ The question lives permanently in the repo, searchable and offline-readable
 | 09 | Docker (Containerization) |
 | 10 | Kubernetes (Deploy & Scale) |
 | 11 | Observability |
-
-Advanced topic questions (EKS, Helm, ArgoCD, Karpenter, production AWS) live in the **Production AWS Platform Q&A** Discussion category and in `weeks/week-12` onward as they are contributed and reviewed.
+| 12 | Amazon EKS |
+| 13 | Helm |
+| 14 | ArgoCD & GitOps |
+| 15 | Karpenter |
 
 ---
 
 ## How to contribute a permanent Q&A (Pull Request)
 
 1. Check [Discussions](../../discussions) first — the question may already be answered there.
-2. Pick the right week under `weeks/<week>/questions/`.
+2. Pick the right topic directory (e.g. `06-terraform/questions/`).
 3. Create a file `Q####-kebab-title.md` with frontmatter and the four sections: Short Answer, Deep Dive, Pitfalls, References.
-4. Run validation locally: `python scripts/validate_frontmatter.py && python scripts/build_index.py`
+4. Run validation locally: `python _internal/scripts/validate_frontmatter.py && python _internal/scripts/build_index.py`
 5. Open a Pull Request. CI runs the same checks.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide including setup, frontmatter format, and commit conventions.
