@@ -200,7 +200,7 @@ Ingvar H. - Group 1
 Gurubalan - DevOps 1
 Prince O
 Yeshwanth Madineni — Group <Your Group>
-- Oluwafemi Aremu — Group <Group 2>
+- Oluwafemi Aremu — Group 2
 
 
 
